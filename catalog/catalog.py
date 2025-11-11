@@ -18,7 +18,7 @@ def search(topic):
         result=[]
         for b in books:
             if b["topic"]==topic:
-                   result.append(b["title"])
+                   result.append(b)
         return jsonify(result),200
                 
         
