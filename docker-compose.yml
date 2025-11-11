@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:  # containers like frontend, order, ...
+  catalog:  # can be accessed through http://catalog:5000 from other internal containers :)
+    build: ./catalog  # this service dockerfile exists in ./catalog
+    container_name: catalog_service  # Gives the container a custom name instead of a random one.
+    ports:
+      - "5000:5000"  # 5000 on my pc to 5000 on flask where it works.
+
+  order:
+    build: ./order
+    container_name: order_service
+    ports:
+      - "5001:5001"
+    depends_on:  # it tells docker compose to start catalog before this.
+      - catalog
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_service
+    ports:
+      - "5002:5002"
+    depends_on:
+      - order
+      - catalog
