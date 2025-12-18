@@ -6,8 +6,6 @@ services:  # containers like frontend, order, ...
     container_name: catalog_service  # Gives the container a custom name instead of a random one.
     ports:
       - "5000:5000"  # 5000 on my pc to 5000 on flask where it works.
-    volumes:
-      - ./catalog/catalog.csv:/app/catalog.csv
 
   order:
     build: ./order

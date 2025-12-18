@@ -8,8 +8,6 @@ RUN pip install -r requirements.txt
 
 COPY catalog.py .
 
-COPY catalog.csv .
-
 #start listening on 5000 port (not open on my pc)
 EXPOSE 5000
 
