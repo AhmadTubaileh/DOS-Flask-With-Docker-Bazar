@@ -1,0 +1,54 @@
+﻿{
+    "part2":  {
+                  "search":  {
+                                 "median_time":  44.8189,
+                                 "max_time":  229.40560000000002,
+                                 "successful_requests":  500,
+                                 "avg_time":  48.464538600000012,
+                                 "min_time":  38.5651,
+                                 "total_requests":  500,
+                                 "operation":  "Search Query"
+                             },
+                  "info":  {
+                               "median_time":  42.525200000000005,
+                               "max_time":  280.3155,
+                               "successful_requests":  500,
+                               "avg_time":  44.298120799999971,
+                               "min_time":  32.4978,
+                               "total_requests":  500,
+                               "operation":  "Info Query"
+                           }
+              },
+    "part1":  {
+                  "search":  {
+                                 "median_time":  47.0003,
+                                 "max_time":  204.0413,
+                                 "successful_requests":  500,
+                                 "avg_time":  49.631511600000024,
+                                 "min_time":  37.1229,
+                                 "total_requests":  500,
+                                 "operation":  "Search Query"
+                             },
+                  "info":  {
+                               "median_time":  40.5366,
+                               "max_time":  199.40550000000002,
+                               "successful_requests":  500,
+                               "avg_time":  43.77446459999998,
+                               "min_time":  35.4929,
+                               "total_requests":  500,
+                               "operation":  "Info Query"
+                           }
+              },
+    "comparison":  {
+                       "search":  {
+                                      "improvement_percent":  2.351274346437619755458257800,
+                                      "part1_avg":  49.631511600000024,
+                                      "part2_avg":  48.464538600000012
+                                  },
+                       "info":  {
+                                    "improvement_percent":  -1.1962595197566191118004078400,
+                                    "part1_avg":  43.77446459999998,
+                                    "part2_avg":  44.298120799999971
+                                }
+                   }
+}

@@ -1,0 +1,20 @@
+﻿{
+    "search":  {
+                   "median_time":  47.0003,
+                   "max_time":  204.0413,
+                   "successful_requests":  500,
+                   "avg_time":  49.631511600000024,
+                   "min_time":  37.1229,
+                   "total_requests":  500,
+                   "operation":  "Search Query"
+               },
+    "info":  {
+                 "median_time":  40.5366,
+                 "max_time":  199.40550000000002,
+                 "successful_requests":  500,
+                 "avg_time":  43.77446459999998,
+                 "min_time":  35.4929,
+                 "total_requests":  500,
+                 "operation":  "Info Query"
+             }
+}

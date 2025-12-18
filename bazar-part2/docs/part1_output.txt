@@ -1,0 +1,76 @@
+================================================================================
+BAZAR Part 1 Performance Test Results
+(No Caching, No Replication)
+================================================================================
+
+Test Configuration:
+- Frontend URL: http://localhost:5002
+- Number of requests: 100 requests per operation
+- Test Date: [Your test date]
+
+================================================================================
+TEST RESULTS
+================================================================================
+
+1. INFO QUERY ENDPOINT (/info/1)
+---------------------------------
+Total Requests: 100
+Successful Requests: 100
+Average Response Time: 40.71 ms
+Median Response Time: 40.00 ms
+Minimum Response Time: 35.00 ms
+Maximum Response Time: 71.46 ms
+
+Details:
+- All requests required database queries (no caching)
+- Consistent performance across all requests
+- No cache overhead
+
+2. SEARCH QUERY ENDPOINT (/search/distributed systems)
+------------------------------------------------------
+Total Requests: 100
+Successful Requests: 100
+Average Response Time: 40.88 ms
+Median Response Time: 39.09 ms
+Minimum Response Time: 34.97 ms
+Maximum Response Time: 166.59 ms
+
+Details:
+- All requests required database queries (no caching)
+- Search operations performed on catalog database
+- No cache overhead
+
+3. PURCHASE OPERATION (/purshase)
+---------------------------------
+Total Requests: 20
+Successful Requests: 10
+Average Response Time: 46.19 ms
+Median Response Time: 45.52 ms
+Minimum Response Time: 41.45 ms
+Maximum Response Time: 56.03 ms
+
+Details:
+- Direct update to catalog database
+- No replication overhead
+- No cache invalidation overhead
+
+================================================================================
+SUMMARY
+================================================================================
+
+Operation          | Average Time (ms) | Status
+--------------------|-------------------|--------
+Info Query          | 40.71            | Baseline
+Search Query        | 40.88            | Baseline
+Purchase            | 46.19            | Baseline
+
+System Characteristics:
+- Single catalog server
+- Single order server
+- No caching mechanism
+- No replication
+- Direct database access for all operations
+
+================================================================================
+END OF PART 1 TEST RESULTS
+================================================================================

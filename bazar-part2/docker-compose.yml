@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:  # containers like frontend, order, ...
+  catalog1:  # can be accessed through http://catalog:5000 from other internal containers :)
+    build: ./catalog  # this service dockerfile exists in ./catalog
+    container_name: catalog_service_1  # Gives the container a custom name instead of a random one.
+    ports:
+      - "5000:5000"  # 5000 on my pc to 5000 on flask where it works.
+    volumes:
+      - ./catalog/catalog1.csv:/app/catalog.csv #any change in the csv file will be reflected in the container (up to date)
+    environment:
+      - OTHER_CATALOG_URL=http://catalog2:5000
+
+  catalog2:
+    build: ./catalog
+    container_name: catalog_service_2
+    ports:
+      - "5003:5000"   # its a different host port (host port can only listen to one port)
+    volumes:
+      - ./catalog/catalog2.csv:/app/catalog.csv
+    environment:
+      - OTHER_CATALOG_URL=http://catalog1:5000
+
+  order1:
+    build: ./order
+    container_name: order_service_1
+    ports:
+      - "5001:5001"
+    depends_on:  # it tells docker compose to start catalog before this.
+      - catalog1
+      - catalog2
+
+  order2:
+    build: ./order
+    container_name: order_service_2
+    ports:
+      - "5004:5001"
+    depends_on:  
+      - catalog1
+      - catalog2
+
+  frontend:
+    build: ./frontend
+    container_name: frontend_service
+    ports:
+      - "5002:5002"
+    depends_on:
+      - order1
+      - order2
+      - catalog1
+      - catalog2
